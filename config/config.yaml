@@ -1,0 +1,10 @@
+server:
+  host: "127.0.0.1"
+  port: 3000
+
+mysql:
+  dbuser:     "root"
+  dbpassword: "password"
+  dbname:     "mySql"
+  dbhost:     "127.0.0.1"
+  dbport:     3306
