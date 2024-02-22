@@ -8,7 +8,7 @@ package inject
 
 import (
 	"demo/external/receiver/demo"
-	applied2 "demo/inject/applied"
+	"demo/inject/applied"
 	"demo/internal/processor/version/implement"
 )
 
@@ -17,8 +17,8 @@ import (
 func BuildInjector() (*Injects, error) {
 	procedure := implement.NewDemoProcedure()
 	receiver := demo.ProvideReceiver(procedure)
-	engine := applied2.InitGrpcServer()
-	database := applied2.InitDatabaseConnect()
+	engine := applied.InitGrpcServer()
+	database := applied.InitDatabaseConnect()
 	injects := &Injects{
 		Receiver:   receiver,
 		GrpcServer: engine,

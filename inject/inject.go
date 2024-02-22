@@ -1,10 +1,10 @@
 package inject
 
 import (
-	"demo/internal/applied/database"
 	"github.com/google/wire"
 
 	"demo/external/receiver/demo"
+	"demo/internal/applied/database"
 	"demo/internal/applied/engine"
 )
 

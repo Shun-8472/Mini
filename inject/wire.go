@@ -4,10 +4,11 @@
 package inject
 
 import (
-	applied2 "demo/inject/applied"
+	"github.com/google/wire"
+
+	"demo/inject/applied"
 	"demo/inject/external"
 	"demo/inject/internal/procedure"
-	"github.com/google/wire"
 )
 
 func BuildInjector() (*Injects, error) {
@@ -16,8 +17,8 @@ func BuildInjector() (*Injects, error) {
 
 		external.DemoSet,
 
-		applied2.InitGrpcServer,
-		applied2.InitDatabaseConnect,
+		applied.InitGrpcServer,
+		applied.InitDatabaseConnect,
 
 		InjectsSet,
 	)
