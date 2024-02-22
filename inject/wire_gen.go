@@ -18,11 +18,13 @@ func BuildInjector() (*Injects, error) {
 	procedure := implement.NewDemoProcedure()
 	receiver := demo.ProvideReceiver(procedure)
 	engine := applied.InitGrpcServer()
-	database := applied.InitDatabaseConnect()
+	database := applied.InitDatabaseConnection()
+	cache := applied.InitCacheConnection()
 	injects := &Injects{
 		Receiver:   receiver,
 		GrpcServer: engine,
 		Database:   database,
+		Redis:      cache,
 	}
 	return injects, nil
 }

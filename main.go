@@ -15,6 +15,8 @@ func main() {
 		panic("failed to inject")
 	}
 
+	//Connect Cache
+	injects.Redis.ConnectCache()
 	//Connect Database
 	injects.Database.ConnectDatabase()
 	//Start GRPC Server

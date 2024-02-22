@@ -5,6 +5,6 @@ import (
 	"demo/internal/applied/database/mysql"
 )
 
-func InitDatabaseConnect() database.Database {
+func InitDatabaseConnection() database.Database {
 	return mysql.NewConnect()
 }

@@ -18,7 +18,8 @@ func BuildInjector() (*Injects, error) {
 		external.DemoSet,
 
 		applied.InitGrpcServer,
-		applied.InitDatabaseConnect,
+		applied.InitDatabaseConnection,
+		applied.InitCacheConnection,
 
 		InjectsSet,
 	)

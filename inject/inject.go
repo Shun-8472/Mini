@@ -1,6 +1,7 @@
 package inject
 
 import (
+	"demo/internal/applied/cache"
 	"github.com/google/wire"
 
 	"demo/external/receiver/demo"
@@ -14,4 +15,5 @@ type Injects struct {
 	Receiver   demo.Receiver
 	GrpcServer engine.Engine
 	Database   database.Database
+	Redis      cache.Cache
 }

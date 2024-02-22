@@ -8,3 +8,9 @@ mysql:
   dbname:     "mySql"
   dbhost:     "127.0.0.1"
   dbport:     3306
+
+redis:
+  host: "127.0.0.3"
+  port: 3000
+  password: ""
+  db: 0

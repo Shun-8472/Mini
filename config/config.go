@@ -18,6 +18,7 @@ var C = new(Configurations)
 type Configurations struct {
 	Server Server
 	Mysql  Mysql
+	Redis  Redis
 }
 
 type Server struct {
@@ -31,6 +32,13 @@ type Mysql struct {
 	DBName     string
 	DBHost     string
 	DBPort     int
+}
+
+type Redis struct {
+	Host     string
+	Port     int
+	Password string
+	Db       int
 }
 
 func InitConfigs() {
@@ -62,4 +70,8 @@ func GetServerAddress() string {
 
 func GetMySqlAddress() string {
 	return fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", C.Mysql.DBUser, C.Mysql.DBPassword, C.Mysql.DBHost, C.Mysql.DBPort, C.Mysql.DBName)
+}
+
+func GetRedisAddress() string {
+	return fmt.Sprintf("%s:%d", C.Redis.Host, C.Redis.Port)
 }
