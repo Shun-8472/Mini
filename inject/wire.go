@@ -6,7 +6,7 @@ package inject
 import (
 	applied2 "demo/inject/applied"
 	"demo/inject/external"
-	"demo/inject/procedure"
+	"demo/inject/internal/procedure"
 	"github.com/google/wire"
 )
 
