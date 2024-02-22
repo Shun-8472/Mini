@@ -2,7 +2,7 @@ package main
 
 import (
 	"demo/config"
-	"demo/internal/inject"
+	"demo/inject"
 )
 
 func main() {
