@@ -4,6 +4,7 @@ import (
 	"net"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 
 	"demo/config"
 	pb "demo/external/protos/demo/v1"
@@ -28,6 +29,7 @@ func (e Engine) StartGRPCServer(sve demo.Receiver) {
 	s := grpc.NewServer()
 
 	pb.RegisterDemoServiceServer(s, sve)
+	reflection.Register(s)
 
 	err = s.Serve(listen)
 	if err != nil {
