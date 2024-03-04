@@ -4,6 +4,7 @@ go 1.22.0
 
 require (
 	github.com/go-redis/redis v6.15.9+incompatible
+	github.com/go-sql-driver/mysql v1.7.1
 	github.com/google/wire v0.6.0
 	github.com/spf13/viper v1.18.2
 	google.golang.org/grpc v1.59.0
