@@ -2,6 +2,10 @@
 docker:
 	DOCKER_BUILDKIT=1 docker build --progress=plain -f ./build/Dockerfile .
 
+.PHONY: deploy
+deploy:
+	docker-compose -p demo -f ./depoly/compose.yaml up -d
+
 .PHONY: inject
 inject:
 	wire gen ./inject

@@ -1,0 +1,36 @@
+services:
+  application:
+    image: demo:latest
+    restart: always
+    build:
+      context: ../
+      dockerfile: ./build/Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    depends_on:
+      - db
+      - redis
+    links:
+      - db
+      - redis
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+  db:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+    environment:
+      - MYSQL_DATABASE=mySql
+      - MYSQL_ROOT_PASSWORD=password
+
+networks:
+  app-network:
+    driver: bridge
