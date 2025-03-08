@@ -1,6 +1,6 @@
 services:
   application:
-    image: demo:latest
+    image: mini:latest
     restart: always
     build:
       context: ../
@@ -12,9 +12,11 @@ services:
     depends_on:
       - db
       - redis
+      - llm
     links:
       - db
       - redis
+      - llm
   redis:
     image: redis:alpine
     ports:
@@ -30,6 +32,12 @@ services:
     environment:
       - MYSQL_DATABASE=mySql
       - MYSQL_ROOT_PASSWORD=password
+  llm:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    networks:
+      - app-network
 
 networks:
   app-network:
