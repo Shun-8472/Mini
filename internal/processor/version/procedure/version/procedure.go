@@ -5,5 +5,5 @@ import (
 )
 
 type Procedure interface {
-	GetDemoInfo() (version.DemoInfo, error)
+	GetVersionInfo() (version.DemoInfo, error)
 }

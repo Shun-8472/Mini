@@ -9,8 +9,8 @@ import (
 
 	"mini/config"
 	chatPb "mini/external/protos/chat/v1"
-	pb "mini/external/protos/demo/v1"
-	"mini/external/receiver/demo"
+	pb "mini/external/protos/version/v1"
+	"mini/external/receiver/version"
 	"mini/internal/applied/engine"
 )
 
@@ -21,7 +21,7 @@ func NewEngine() engine.Engine {
 	return &Engine{}
 }
 
-func (e Engine) StartGRPCServer(sve demo.Receiver, chatSve chat.Receiver) {
+func (e Engine) StartGRPCServer(versionSve version.Receiver, chatSve chat.Receiver) {
 	address := config.GetServerAddress()
 	listen, err := net.Listen("tcp", address)
 	if err != nil {
@@ -30,7 +30,7 @@ func (e Engine) StartGRPCServer(sve demo.Receiver, chatSve chat.Receiver) {
 
 	s := grpc.NewServer()
 
-	pb.RegisterDemoServiceServer(s, sve)
+	pb.RegisterVersionServiceServer(s, versionSve)
 	chatPb.RegisterChatServiceServer(s, chatSve)
 
 	reflection.Register(s)

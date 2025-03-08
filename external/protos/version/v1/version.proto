@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package version.v1;
+
+message Version {
+  string version = 1;
+  string latest_update_time = 2;
+}
+
+service VersionService {
+  rpc WhatIsVersionInfo(WhatIsVersionInfoRequest) returns (WhatIsVersionInfoResponse) {}
+}
+
+message WhatIsVersionInfoRequest {
+  string demo_name = 1;
+}
+
+message WhatIsVersionInfoResponse {
+  string version = 1;
+  string latest_update_time = 2;
+}

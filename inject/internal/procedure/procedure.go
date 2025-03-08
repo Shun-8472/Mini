@@ -3,8 +3,8 @@ package procedure
 import (
 	"github.com/google/wire"
 
-	"mini/internal/processor/version/implement/chat"
-	"mini/internal/processor/version/implement/version"
+	chatProcedure "mini/internal/processor/version/implement/chat"
+	versionProcedure "mini/internal/processor/version/implement/version"
 )
 
-var ProcSet = wire.NewSet(version.NewDemoProcedure, chat.NewChatProcedure)
+var ProcSet = wire.NewSet(versionProcedure.NewVersionProcedure, chatProcedure.NewChatProcedure)

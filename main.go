@@ -25,5 +25,5 @@ func main() {
 	injects.LLM.ConnectLLM()
 
 	//Start GRPC Server
-	injects.GrpcServer.StartGRPCServer(injects.Receiver, injects.ChatReceiver)
+	injects.GrpcServer.StartGRPCServer(injects.VersionReceiver, injects.ChatReceiver)
 }
