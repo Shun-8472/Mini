@@ -19,6 +19,7 @@ type Configurations struct {
 	Server Server
 	Mysql  Mysql
 	Redis  Redis
+	LLM    LLM
 }
 
 type Server struct {
@@ -39,6 +40,10 @@ type Redis struct {
 	Port     int
 	Password string
 	Db       int
+}
+
+type LLM struct {
+	Ollamamodel string
 }
 
 func InitConfigs() {
