@@ -3,8 +3,8 @@ package demo
 import (
 	"context"
 
-	pb "demo/external/protos/demo/v1"
-	proc "demo/internal/processor/version/procedure"
+	pb "mini/external/protos/demo/v1"
+	proc "mini/internal/processor/version/procedure/version"
 )
 
 type impl struct {

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"demo/config"
-	"demo/inject"
+	"mini/config"
+	"mini/inject"
 )
 
 func main() {
@@ -16,9 +16,14 @@ func main() {
 	}
 
 	//Connect Cache
-	injects.Redis.ConnectCache()
+	//injects.Redis.ConnectCache()
+
 	//Connect Database
-	injects.Database.ConnectDatabase()
+	//injects.Database.ConnectDatabase()
+
+	//Connect LLM
+	injects.LLM.ConnectLLM()
+
 	//Start GRPC Server
-	injects.GrpcServer.StartGRPCServer(injects.Receiver)
+	injects.GrpcServer.StartGRPCServer(injects.Receiver, injects.ChatReceiver)
 }

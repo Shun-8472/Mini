@@ -1,7 +1,10 @@
 package engine
 
-import "demo/external/receiver/demo"
+import (
+	"mini/external/receiver/chat"
+	"mini/external/receiver/demo"
+)
 
 type Engine interface {
-	StartGRPCServer(sve demo.Receiver)
+	StartGRPCServer(sve demo.Receiver, chatSve chat.Receiver)
 }

@@ -3,7 +3,8 @@ package external
 import (
 	"github.com/google/wire"
 
-	"demo/external/receiver/demo"
+	"mini/external/receiver/chat"
+	"mini/external/receiver/demo"
 )
 
-var DemoSet = wire.NewSet(demo.ProvideReceiver)
+var MiniSet = wire.NewSet(demo.ProvideReceiver, chat.ProvideReceiver)

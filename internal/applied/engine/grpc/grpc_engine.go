@@ -1,15 +1,17 @@
 package grpc
 
 import (
+	"mini/external/receiver/chat"
 	"net"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 
-	"demo/config"
-	pb "demo/external/protos/demo/v1"
-	"demo/external/receiver/demo"
-	"demo/internal/applied/engine"
+	"mini/config"
+	chatPb "mini/external/protos/chat/v1"
+	pb "mini/external/protos/demo/v1"
+	"mini/external/receiver/demo"
+	"mini/internal/applied/engine"
 )
 
 type Engine struct {
@@ -19,7 +21,7 @@ func NewEngine() engine.Engine {
 	return &Engine{}
 }
 
-func (e Engine) StartGRPCServer(sve demo.Receiver) {
+func (e Engine) StartGRPCServer(sve demo.Receiver, chatSve chat.Receiver) {
 	address := config.GetServerAddress()
 	listen, err := net.Listen("tcp", address)
 	if err != nil {
@@ -29,6 +31,8 @@ func (e Engine) StartGRPCServer(sve demo.Receiver) {
 	s := grpc.NewServer()
 
 	pb.RegisterDemoServiceServer(s, sve)
+	chatPb.RegisterChatServiceServer(s, chatSve)
+
 	reflection.Register(s)
 
 	err = s.Serve(listen)

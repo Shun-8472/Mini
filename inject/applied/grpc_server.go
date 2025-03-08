@@ -1,8 +1,8 @@
 package applied
 
 import (
-	"demo/internal/applied/engine"
-	"demo/internal/applied/engine/grpc"
+	"mini/internal/applied/engine"
+	"mini/internal/applied/engine/grpc"
 )
 
 func InitGrpcServer() engine.Engine {

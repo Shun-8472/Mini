@@ -6,20 +6,21 @@ package inject
 import (
 	"github.com/google/wire"
 
-	"demo/inject/applied"
-	"demo/inject/external"
-	"demo/inject/internal/procedure"
+	"mini/inject/applied"
+	"mini/inject/external"
+	"mini/inject/internal/procedure"
 )
 
 func BuildInjector() (*Injects, error) {
 	wire.Build(
 		procedure.ProcSet,
 
-		external.DemoSet,
+		external.MiniSet,
 
 		applied.InitGrpcServer,
 		applied.InitDatabaseConnection,
 		applied.InitCacheConnection,
+		applied.InitLLMConnection,
 
 		InjectsSet,
 	)

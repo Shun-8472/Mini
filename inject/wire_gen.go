@@ -7,24 +7,31 @@
 package inject
 
 import (
-	"demo/external/receiver/demo"
-	"demo/inject/applied"
-	"demo/internal/processor/version/implement"
+	chat2 "mini/external/receiver/chat"
+	"mini/external/receiver/demo"
+	"mini/inject/applied"
+	"mini/internal/processor/version/implement/chat"
+	"mini/internal/processor/version/implement/version"
 )
 
 // Injectors from wire.go:
 
 func BuildInjector() (*Injects, error) {
-	procedure := implement.NewDemoProcedure()
+	procedure := version.NewDemoProcedure()
 	receiver := demo.ProvideReceiver(procedure)
 	engine := applied.InitGrpcServer()
 	database := applied.InitDatabaseConnection()
 	cache := applied.InitCacheConnection()
+	chatProcedure := chat.NewChatProcedure()
+	chatReceiver := chat2.ProvideReceiver(chatProcedure)
+	llm := applied.InitLLMConnection()
 	injects := &Injects{
-		Receiver:   receiver,
-		GrpcServer: engine,
-		Database:   database,
-		Redis:      cache,
+		Receiver:     receiver,
+		GrpcServer:   engine,
+		Database:     database,
+		Redis:        cache,
+		ChatReceiver: chatReceiver,
+		LLM:          llm,
 	}
 	return injects, nil
 }

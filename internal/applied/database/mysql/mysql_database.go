@@ -5,8 +5,8 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 
-	"demo/config"
-	"demo/internal/applied/database"
+	"mini/config"
+	"mini/internal/applied/database"
 )
 
 var (

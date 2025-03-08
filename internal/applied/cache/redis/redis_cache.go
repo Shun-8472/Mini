@@ -3,8 +3,8 @@ package redis
 import (
 	"github.com/go-redis/redis"
 
-	"demo/config"
-	"demo/internal/applied/cache"
+	"mini/config"
+	"mini/internal/applied/cache"
 )
 
 var (

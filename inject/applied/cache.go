@@ -1,8 +1,8 @@
 package applied
 
 import (
-	"demo/internal/applied/cache"
-	"demo/internal/applied/cache/redis"
+	"mini/internal/applied/cache"
+	"mini/internal/applied/cache/redis"
 )
 
 func InitCacheConnection() cache.Cache {
