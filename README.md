@@ -34,9 +34,11 @@ Before running the service, install the following dependencies:
     ```
 ### **5️⃣ Install buf (for gRPC Protobuf management)**
 - [buf](https://formulae.brew.sh/formula/buf)
-    ```shell
-    $ brew install buf
-    ```
+  ```shell
+  $ brew install buf
+  $ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+  $ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+  ```
 ### **6️⃣ Install wire (for Dependency Injection)**
 - [wire](https://github.com/google/wire)
     ```shell
