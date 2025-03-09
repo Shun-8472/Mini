@@ -18,7 +18,6 @@ type Injects struct {
 	GrpcServer      engine.Engine
 	Database        database.Database
 	Redis           cache.Cache
-
 	//LLM Receiver
 	ChatReceiver chatReciver.Receiver
 	LLM          llm.LLM
