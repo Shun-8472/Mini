@@ -16,10 +16,10 @@ func main() {
 	}
 
 	//Connect Cache
-	//injects.Redis.ConnectCache()
+	injects.Redis.ConnectCache()
 
 	//Connect Database
-	//injects.Database.ConnectDatabase()
+	injects.Database.ConnectDatabase()
 
 	//Connect LLM
 	injects.LLM.ConnectLLM()
